@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#090909">
+<title>MUEEN STORE | MSGrowth</title>
+<style>
+:root{--bg:#090909;--panel:#141414;--line:#292929;--red:#ff304f;--text:#f7f7f7;--muted:#aaa;--green:#26d07c}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at top right,#281018 0,transparent 35%),var(--bg);color:var(--text);font:15px system-ui,-apple-system,Segoe UI,sans-serif}
+header{position:sticky;top:0;z-index:10;background:#090909eF;border-bottom:1px solid var(--line);backdrop-filter:blur(12px);padding:14px 5%;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{font-weight:900;letter-spacing:1px;font-size:20px}.brand span{color:var(--red)}nav{display:flex;gap:8px;flex-wrap:wrap}button,.btn{border:0;border-radius:11px;background:var(--red);color:#fff;padding:11px 15px;font-weight:750;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:7px}button.secondary,.btn.secondary{background:#202020;border:1px solid #333}button:disabled{opacity:.55;cursor:not-allowed}
+main{max-width:1100px;margin:auto;padding:28px 5% 70px}.hero{padding:35px 0 24px;display:grid;grid-template-columns:1.4fr 1fr;gap:20px;align-items:center}.eyebrow{color:#ff8a9b;font-weight:800;text-transform:uppercase;letter-spacing:2px;font-size:12px}.hero h1{font-size:clamp(34px,6vw,62px);line-height:1.02;margin:12px 0}.hero h1 span{color:var(--red)}p{color:var(--muted);line-height:1.65}.heroCard,.card{background:linear-gradient(145deg,#191919,#101010);border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:0 12px 35px #0005}.heroCard .big{font-size:45px;font-weight:950;color:var(--red)}h2{margin:30px 0 14px;font-size:25px}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.service h3{margin:0 0 7px}.price{font-size:23px;font-weight:900;margin:12px 0}.tag{display:inline-block;font-size:11px;color:#ff9aaa;border:1px solid #5a2530;padding:5px 8px;border-radius:30px}.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}label{display:block;font-size:13px;color:#ddd;margin:8px 0 5px}input,select,textarea{width:100%;background:#0b0b0b;color:white;border:1px solid #383838;border-radius:10px;padding:12px;font:inherit}textarea{min-height:85px;resize:vertical}.wide{grid-column:1/-1}.note{font-size:12px;color:#aaa}.notice{padding:12px;border-radius:10px;background:#24171a;border:1px solid #48242b;color:#ffd7de;margin:12px 0}.status{padding:12px;border-radius:10px;background:#101f17;border:1px solid #204f36;color:#b8ffd5;margin-top:12px;display:none}.adminbox{margin-top:25px}.hidden{display:none!important}.order{padding:14px;border:1px solid var(--line);border-radius:12px;margin:10px 0;background:#101010}.orderTop{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}.order small{color:#aaa}.order select{max-width:190px}.footer{border-top:1px solid var(--line);padding:25px 5%;text-align:center;color:#888;font-size:12px}
+@media(max-width:760px){.hero{grid-template-columns:1fr;padding-top:20px}.grid{grid-template-columns:1fr}.formgrid{grid-template-columns:1fr}.wide{grid-column:auto}header{align-items:flex-start;flex-direction:column}.heroCard{padding:18px}}
+</style>
+</head>
+<body>
+<header><div class="brand">MUEEN <span>STORE</span><div style="font-size:10px;color:#999;letter-spacing:3px">POWERED BY MSGROWTH</div></div><nav><a class="btn secondary" href="#services">Services</a><a class="btn" href="#order">Order Now</a><button class="secondary" id="adminToggle">Admin</button></nav></header>
+<main>
+<section class="hero"><div><div class="eyebrow">Digital growth studio · MSGrowth</div><h1>Grow your social presence.<br><span>Smarter. Faster.</span></h1><p>Social media growth services ke liye apna package choose karein aur order request bhejein. Order submit karne ke baad aapko Order ID milegi.</p><a class="btn" href="#services">Explore Services ↓</a></div><div class="heroCard"><div class="tag">MUEEN STORE</div><div class="big">MSGrowth</div><strong>Simple ordering. Clear updates.</strong><p>Orders secure database mein save honge. Customer orders public list mein nahi dikhte.</p></div></section>
+<section id="services"><h2>Popular Services</h2><div class="grid">
+<div class="card service"><span class="tag">INSTAGRAM</span><h3>Instagram Growth</h3><p>Instagram service request submit karein.</p><div class="price">₹99 <small style="font-size:12px;color:#aaa">/ starter</small></div><button onclick="chooseService('Instagram Growth','99')">Choose Package</button></div>
+<div class="card service"><span class="tag">YOUTUBE</span><h3>YouTube Growth</h3><p>YouTube channel promotion service request.</p><div class="price">₹149 <small style="font-size:12px;color:#aaa">/ starter</small></div><button onclick="chooseService('YouTube Growth','149')">Choose Package</button></div>
+<div class="card service"><span class="tag">CUSTOM</span><h3>Custom Request</h3><p>Platform aur requirement detail mein likhein.</p><div class="price">Custom</div><button class="secondary" onclick="chooseService('Custom Request','0')">Request Quote</button></div>
+</div><p class="note">Note: Ye sample package prices hain—launch se pehle apni actual service, quantity, delivery time aur terms ke hisaab se edit karein. Fake engagement ya platform rules ko todne wali services offer na karein.</p></section>
+<section id="order"><h2>Place Your Order</h2><div class="card"><form id="orderForm"><div class="formgrid">
+<div><label for="customerName">Your Name *</label><input id="customerName" maxlength="80" required autocomplete="name" placeholder="Naam"></div>
+<div><label for="customerContact">Email or WhatsApp *</label><input id="customerContact" maxlength="120" required placeholder="Contact detail"></div>
+<div><label for="service">Service *</label><select id="service" required><option value="">Select service</option><option>Instagram Growth</option><option>YouTube Growth</option><option>Custom Request</option></select></div>
+<div><label for="package">Package / Budget (₹) *</label><input id="package" type="number" min="0" max="100000" required value="99"></div>
+<div class="wide"><label for="profile">Public profile/channel link (optional)</label><input id="profile" type="url" maxlength="500" placeholder="https://..."></div>
+<div class="wide"><label for="details">Requirement / quantity *</label><textarea id="details" maxlength="1000" required placeholder="Apni requirement saaf likhein"></textarea></div>
+</div><div class="notice">Payment tabhi karein jab service details aur terms confirm ho jaayen. Is demo mein payment automatically collect nahi hoti.</div><button id="submitOrder" type="submit">Submit Order</button><div class="status" id="orderStatus" role="status"></div></form></div></section>
+<section id="adminPanel" class="adminbox hidden"><h2>Admin Panel</h2><div class="card">
+<div id="adminLoginBox"><p>Admin access ke liye Firebase Authentication se sign in karein. Sirf authorised Admin UID ko orders padhne/modify karne ki permission honi chahiye.</p><label>Email</label><input id="adminEmail" type="email" autocomplete="username" placeholder="Admin email"><label>Password</label><input id="adminPassword" type="password" autocomplete="current-password" placeholder="Password"><div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px"><button id="loginBtn">Admin Login</button><button class="secondary" id="logoutBtn" style="display:none">Logout</button></div><div id="adminMessage" class="status"></div></div>
+<div id="ordersArea" class="hidden"><div class="orderTop"><strong>Customer Orders</strong><button class="secondary" id="refreshOrders">Refresh</button></div><div id="ordersList"><p>Orders load ho rahe hain...</p></div></div>
+</div></section>
+</main><footer class="footer">© <span id="year"></span> MUEEN STORE · MSGrowth · Customer privacy matters.</footer>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
+import { getFirestore, collection, addDoc, serverTimestamp, query, orderBy, limit, getDocs, doc, updateDoc } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
+import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
+
+// Replace these values with your Firebase project's web app configuration.
+// Firebase web config is not a server secret; Firestore Rules and Auth are the real security boundary.
+const firebaseConfig = {
+  apiKey: "YOUR_FIREBASE_WEB_API_KEY",
+  authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+  projectId: "YOUR_PROJECT_ID",
+  storageBucket: "YOUR_PROJECT_ID.appspot.com",
+  messagingSenderId: "YOUR_SENDER_ID",
+  appId: "YOUR_FIREBASE_APP_ID"
+};
+const configured = !Object.values(firebaseConfig).some(v => v.startsWith("YOUR_"));
+let db, auth;
+if (configured) { const app=initializeApp(firebaseConfig); db=getFirestore(app); auth=getAuth(app); }
+const $ = id => document.getElementById(id);
+$("year").textContent = new Date().getFullYear();
+window.chooseService = (service, price) => { $("service").value=service; $("package").value=price; location.hash="#order"; };
+$("adminToggle").addEventListener("click",()=>{ $("adminPanel").classList.toggle("hidden"); if(!$("adminPanel").classList.contains("hidden")) location.hash="#adminPanel"; });
+function showStatus(el,msg){el.textContent=msg;el.style.display="block";}
+$("orderForm").addEventListener("submit",async e=>{
+ e.preventDefault(); const btn=$("submitOrder"), status=$("orderStatus"); status.style.display="none";
+ if(!configured){showStatus(status,"Pehle Firebase config set karein. README_SETUP_HI.txt mein steps diye hain.");return;}
+ const name=$("customerName").value.trim(), contact=$("customerContact").value.trim(), service=$("service").value, amount=Number($("package").value), profile=$("profile").value.trim(), details=$("details").value.trim();
+ if(!name||!contact||!service||!details||!Number.isFinite(amount)||amount<0){showStatus(status,"Kripya sabhi required details sahi bharein.");return;}
+ btn.disabled=true;btn.textContent="Submitting...";
+ try{
+  const ref=await addDoc(collection(db,"orders"),{name,contact,service,amount,profile,details,status:"Received",createdAt:serverTimestamp()});
+  $("orderForm").reset();$("package").value=99;showStatus(status,"Order submit ho gaya! Aapki Order ID: "+ref.id+" — ise save kar lein.");
+ }catch(err){console.error(err);showStatus(status,"Order submit nahi hua. Firebase Rules/config check karein.");}
+ finally{btn.disabled=false;btn.textContent="Submit Order";}
+});
+$("loginBtn").addEventListener("click",async()=>{
+ const msg=$("adminMessage");msg.style.display="none";
+ if(!configured){showStatus(msg,"Firebase config set nahi hai.");return;}
+ try{await signInWithEmailAndPassword(auth,$("adminEmail").value.trim(),$("adminPassword").value);showStatus(msg,"Login successful.");}
+ catch(e){showStatus(msg,"Login failed. Email/password aur Firebase Authentication settings check karein.");}
+});
+$("logoutBtn").addEventListener("click",async()=>{if(auth)await signOut(auth);});
+$("refreshOrders").addEventListener("click",loadOrders);
+if(configured){
+ onAuthStateChanged(auth,user=>{
+  $("logoutBtn").style.display=user?"inline-flex":"none";
+  $("ordersArea").classList.toggle("hidden",!user);
+  if(user)loadOrders(); else $("ordersList").innerHTML="<p>Admin login required.</p>";
+ });
+}else{showStatus($("adminMessage"),"Firebase config set karne ke baad Admin Login enable hoga.");}
+async function loadOrders(){
+ if(!auth?.currentUser)return;
+ $("ordersList").innerHTML="<p>Loading...</p>";
+ try{
+  const q=query(collection(db,"orders"),orderBy("createdAt","desc"),limit(100));const snap=await getDocs(q);
+  if(snap.empty){$("ordersList").innerHTML="<p>Abhi koi order nahi hai.</p>";return;}
+  $("ordersList").replaceChildren();
+  snap.forEach(s=>{
+   const o=s.data(), card=document.createElement("div");card.className="order";
+   const top=document.createElement("div");top.className="orderTop";
+   const title=document.createElement("strong");title.textContent=o.service+" · ₹"+o.amount;
+   const id=document.createElement("small");id.textContent="ID: "+s.id;top.append(title,id);
+   const details=document.createElement("p");details.textContent=`Name: ${o.name} | Contact: ${o.contact}\nRequirement: ${o.details}\nProfile: ${o.profile||"Not provided"}`;details.style.whiteSpace="pre-line";
+   const sel=document.createElement("select");["Received","In Progress","Completed","Cancelled"].forEach(st=>{const op=document.createElement("option");op.value=st;op.textContent=st;op.selected=(o.status||"Received")===st;sel.append(op);});
+   sel.addEventListener("change",async()=>{sel.disabled=true;try{await updateDoc(doc(db,"orders",s.id),{status:sel.value});}catch(e){alert("Status update failed. Admin UID/Rules check karein.");sel.value=o.status||"Received";}finally{sel.disabled=false;}});
+   card.append(top,details,sel);$("ordersList").append(card);
+  });
+ }catch(e){console.error(e);$("ordersList").innerHTML="<p>Orders load nahi hue. Check karein ki current Admin UID Firestore Rules mein allowed hai.</p>";}
+}
+</script>
+</body></html>
